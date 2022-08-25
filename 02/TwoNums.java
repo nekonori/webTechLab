@@ -1,3 +1,4 @@
+// check if a<100 && a>b
 import java.util.*;
 
 public class TwoNums {

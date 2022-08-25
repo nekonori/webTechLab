@@ -1,3 +1,5 @@
+// copy subarray of an array into another array using arraycopy
+
 import java.util.*;
 
 

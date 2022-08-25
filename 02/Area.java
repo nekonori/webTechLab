@@ -1,3 +1,4 @@
+// program to calc area of square and rectangle
 
 import java.util.Scanner;
 

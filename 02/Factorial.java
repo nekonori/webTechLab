@@ -1,3 +1,4 @@
+// find factorial of a num
 import java.util.Scanner;
 
 public class Factorial {

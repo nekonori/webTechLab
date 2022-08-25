@@ -1,4 +1,4 @@
-
+// implement matrix addn, multi, and transpose
 import java.util.*;
 
 public class Matrix {
