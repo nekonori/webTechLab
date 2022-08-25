@@ -12,6 +12,7 @@ public class Area {
         int l = sc.nextInt();
         System.out.print("Breadth of rectangle >> ");
         int b = sc.nextInt();
+        sc.close();
         System.out.println("Area of rect: " + (l*b));
     }
 }

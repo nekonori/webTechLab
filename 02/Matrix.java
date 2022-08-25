@@ -62,5 +62,6 @@ public class Matrix {
         mulMatrix(a, b);
         System.out.println("Transpose of matrix A: ");
         printTranspose(a);
+        sc.close();
     }
 }

@@ -22,5 +22,6 @@ public class Permutation {
         r = sc.nextInt();
         System.out.println("nPr = " + perm(n, r));
         System.out.println("nCr = " + comb(n, r));
+        sc.close();
     }
 }
