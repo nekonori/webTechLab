@@ -21,7 +21,7 @@ public class SecretCode {
             System.out.println("Invalid code, no digit found");
             return;
         }
-        Pattern scPattern = Pattern.compile("(cod){1}[a-z0-9]{3}", Pattern.CASE_INSENSITIVE);
+        Pattern scPattern = Pattern.compile("^(cod){1}[a-z0-9]{3}$", Pattern.CASE_INSENSITIVE);
         boolean valid = scPattern.matcher(code).find();
         System.out.println(valid ? "Valid code" : "Code not valid");
     }
