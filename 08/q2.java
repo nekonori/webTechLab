@@ -1,25 +1,34 @@
-import java.util.*;
 import java.io.*;
-import java.net.*;
-public class q2{
-    public static void main(String[] args)
-    {
-        try{
-                FileReader fr=new FileReader("inputfile.txt");
-                FileWriter fw=new FileWriter("outputfile2.txt");
-                int i=fr.read();
-                String s="";
-                while(i!=-1){
-                    System.out.println((char)i);
-                    s+=(char)i;
-                    i=fr.read();
-                }
-                fr.close();
-                fw.write(s.toUpperCase());
-                fw.close();
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
+
+class Country implements Serializable {
+    String conName;
+    String contName;
+    transient int population;
+
+    Country(String con, String cont, int pop) {
+        conName = con;
+        contName = cont;
+        population = pop;
+    }
+
+    void print() {
+        System.out.println(conName + " " + contName + " " + population);
+    }
+}
+
+public class q2 {
+    public static void main(String[] args) throws Exception {
+        Country c = new Country("India", "Asia", 65);
+        FileOutputStream fos = new FileOutputStream("country.txt");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(c);
+        oos.flush();
+        oos.close();
+        System.out.println("success...");
+        FileInputStream fis = new FileInputStream("country.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Country x = (Country) ois.readObject();
+        x.print();
+        ois.close();
     }
 }
