@@ -1,7 +1,12 @@
 class Alpha implements Runnable {
     public synchronized void run() {
-        for (char a = 'a'; a <= 'z'; a++)
+        for (char a = 'a'; a <= 'z'; a++) {
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
             System.out.print(a + " ");
+        }
         System.out.println();
     }
 }
@@ -15,8 +20,13 @@ class AlphaRev implements Runnable {
 
     public void run() {
         synchronized (al) {
-            for (char a = 'z'; a >= 'a'; a--)
+            for (char a = 'z'; a >= 'a'; a--) {
+                try {
+                    Thread.sleep(2000);
+                } catch (Exception e) {
+                }
                 System.out.print(a + " ");
+            }
         }
     }
 }
