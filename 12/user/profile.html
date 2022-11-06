@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="display-6">Your Profile</h1>
+      <div class="lead">
+        <div>Name: <span id="name"></span></div>
+        <div>Email: <span id="email"></span></div>
+        <div>Mobile no.: <span id="mobile"></span></div>
+      </div>
+      <div><a class="btn btn-lg my-3 btn-success" href="/">Home</a></div>
+    </div>
+    <script>
+      const user = JSON.parse(localStorage.getItem("user"));
+      $("#name").text(user.name);
+      $("#email").text(user.email);
+      $("#mobile").text(user.mobile);
+    </script>
+  </body>
+</html>

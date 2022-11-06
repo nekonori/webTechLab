@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <title>Login</title>
+</head>
+
+<body class="container">
+    <h1 class="display-6">Login</h1>
+    <div>
+        <form>
+            <div>
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control w-50">
+            </div>
+            <div>
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control w-50">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-success my-3">Submit</button>
+            </div>
+        </form>
+        <small>Not yet registered? <a href="/auth/signup.html">Sign Up</a></small>
+    </div>
+</body>
+
+<script>
+    const form = document.forms[0];
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const thisEmail = form.elements[0].value,
+            thisPass = form.elements[1].value;
+        if (thisEmail === '' || thisPass === '') {
+            alert("All fields are required");
+            return;
+        }
+        const user = localStorage.getItem("user");
+        if (!user) {
+            alert("Sign up to proceed");
+            return;
+        }
+        const { email, password } = JSON.parse(user);
+        if (email !== thisEmail || password !== thisPass) {
+            alert("Incorrect username or password");
+            return;
+        }
+        localStorage.setItem("active", true);
+        window.location.href = "/";
+    })
+</script>
+
+</html>

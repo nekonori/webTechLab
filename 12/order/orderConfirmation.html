@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="pay">
+        <div class="text-center my-5 display-6">
+          Amount to pay: $<span class="amt"></span>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-lg btn-success mx-3" id="pay-btn">Pay</button>
+          <button class="btn btn-lg btn-danger home">Cancel</button>
+        </div>
+      </div>
+      <div id="order" class="mt-3">
+        <div class="text-center">
+          <h3>Order placed, your order will be delivered tomorrow!</h3>
+          <div>
+            <h1 class="display-6 mt-5">Order details</h1>
+            <div>Camera: <span id="cam-qty"></span></div>
+            <div>Printer: <span id="prt-qty"></span></div>
+            <div>Total amount: $<span class="amt"></span></div>
+          </div>
+          <button class="btn btn-lg btn-success mt-3 home">Home</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $(".amt").text(localStorage.getItem("amt"));
+        $("#order").hide();
+      });
+      $("#pay-btn").click(() => {
+        $("#pay").hide();
+        $("#order").show();
+        const { cam, prt } = JSON.parse(localStorage.getItem("pdts"));
+        $("#cam-qty").text(cam);
+        $("#prt-qty").text(prt);
+      });
+      $(".home").click(() => {
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>
