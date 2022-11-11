@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <div>Enter some text</div>
+    <textarea></textarea>
+    <div>
+      <button>Get length of text</button>
+    </div>
+    <div id="length"></div>
+    <script>
+      $("button").click(() => {
+        $("#length").text("Length of text: " + $("textarea").val().length);
+      });
+    </script>
+  </body>
+</html>

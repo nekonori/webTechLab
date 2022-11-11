@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <div>Click the input field</div>
+      <input type="text" />
+    </div>
+    <script>
+      $("div").focusin(() => $("div").css("background-color", "lightgreen"));
+      $("div").focusout(() => $("div").css("background-color", "coral"));
+    </script>
+  </body>
+</html>

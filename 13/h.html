@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <h1>Movie ratings</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th id="sort-name">Movie name</th>
+          <th id="sort-rating">Rating</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div>
+      Click on the respective headings to sort by movie name &amp; rating
+    </div>
+    <div>
+      <h2>Add a movie</h2>
+      <div>
+        <label>Movie name</label>
+        <input id="mov-name" />
+      </div>
+      <div>
+        <label>Rating</label>
+        <input id="mov-rating" />
+      </div>
+      <button id="add">Add</button>
+    </div>
+    <script>
+      let movies = [];
+
+      $("#add").click(() => {
+        const movieName = $("#mov-name").val(),
+          movieRating = $("#mov-rating").val(),
+          existingRowCount = $("tbody").children("tr").length,
+          movieId = existingRowCount + 1;
+
+        $("#mov-name").val("");
+        $("#mov-rating").val("");
+
+        // add to array and build new table
+        movies.push({ movieId, movieName, movieRating });
+        buildTable();
+      });
+
+      $("#sort-name").click(() => sortTable("title"));
+      $("#sort-rating").click(() => sortTable("rating"));
+
+      const buildTable = () => {
+        // remove existing table rows
+        $("tbody").empty();
+
+        movies.forEach((movie) => {
+          const movieName = movie.movieName,
+            movieRating = movie.movieRating,
+            movieId = movie.movieId;
+
+          const newRow = $(`<tr id='${movieId}'></tr>`);
+
+          newRow.append("<td>" + movieId + "</td>");
+          newRow.append("<td>" + movieName + "</td>");
+          newRow.append("<td>" + movieRating + "</td>");
+
+          const removeButton = $(
+            `<button onclick='removeMovie(${movieId})'>x</button>`
+          );
+          newRow.append($("<td></td>").append(removeButton));
+
+          $("tbody").append(newRow);
+        });
+      };
+
+      const removeMovie = (movieId) => {
+        // remove from table
+        $(`#${movieId}`).remove();
+
+        // remove from array
+        movies = movies.filter((movie) => movie.movieId !== movieId);
+      };
+
+      const sortTable = (key) => {
+        if (key === "title")
+          movies.sort((a, b) => a.movieName.localeCompare(b.movieName));
+        else if (key === "rating")
+          movies.sort((a, b) => a.movieRating - b.movieRating);
+        buildTable();
+      };
+    </script>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid;
+      }
+      div {
+        margin: 1rem 0;
+      }
+      table {
+        margin: 0 auto;
+        width: 90%;
+        border-collapse: collapse;
+      }
+    </style>
+  </body>
+</html>

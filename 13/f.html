@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <label>x</label>
+      <input id="x" />
+    </div>
+    <div>
+      <label>y</label>
+      <input id="y" />
+    </div>
+    <div>
+      <button>+</button>
+      <button>-</button>
+      <button>*</button>
+      <button>/</button>
+    </div>
+    <div>Result: <span id="res"></span></div>
+    <script>
+      $("button").click((e) => {
+        const x = parseInt($("#x").val()),
+          y = parseInt($("#y").val()),
+          op = e.target.textContent,
+          res = $("#res");
+        switch (op) {
+          case "+":
+            res.text(x + y);
+            break;
+          case "-":
+            res.text(x - y);
+            break;
+          case "*":
+            res.text(x * y);
+            break;
+          default:
+            res.text(x / y);
+            break;
+        }
+      });
+    </script>
+    <style>
+      div {
+        margin: 1rem;
+      }
+    </style>
+  </body>
+</html>
