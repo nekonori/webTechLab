@@ -7,19 +7,18 @@ public class q1Server {
         Scanner sc = new Scanner(System.in);
         ServerSocket ss = new ServerSocket(4000);
         Socket s = ss.accept();
-        DataInputStream dis = new DataInputStream(s.getInputStream());
-        DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-        BufferedReader bis = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+        BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         String ipStr = "", opStr = "";
         while (!ipStr.equals("stop")) {
-            ipStr = (String) dis.readUTF();
+            ipStr = in.readLine();
             System.out.println("Message from client\t-->" + ipStr);
             System.out.print(">>>");
-            opStr = bis.readLine();
-            dos.writeUTF(opStr);
-            dos.flush();
+            opStr = sc.nextLine();
+            out.println(opStr);
         }
-        dis.close();
+        in.close();
+        out.close();
         s.close();
         ss.close();
         sc.close();
