@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This document is a breakfast menu for a cafe, written in XML. -->
+<!-- Source: http://www.w3schools.com/xml/ -->
+<menu>
+<food>
+<name>Belgian Waffles</name>
+<price>£5.95</price>
+<description>
+Our famous Belgian Waffles with plenty of real maple syrup.
+</description>
+</food>
+<food>
+<name>Strawberry Belgian Waffles</name>
+<price>£7.95</price>
+<description>
+Light Belgian waffles covered with strawberries and whipped cream.
+</description>
+</food>
+<food>
+<name>Homestyle Breakfast</name>
+<price>£6.95</price>
+<description>
+Two eggs, bacon, sausage, toast, and our ever-popular hash browns.
+</description>
+</food>
+</menu>
