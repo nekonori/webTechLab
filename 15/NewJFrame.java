@@ -1,3 +1,5 @@
+// /m/2myx6v
+
 package javaapplication1;
 
 public class NewJFrame extends javax.swing.JFrame {
