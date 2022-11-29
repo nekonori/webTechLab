@@ -2,8 +2,7 @@
 // to execute run the following command
 // javac -cp ".;jcalendar-1.4.jar" Forms.java && java -cp ".;jcalendar-1.4.jar" Forms
 import com.toedter.calendar.JDateChooser;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Forms {
@@ -33,7 +32,7 @@ public class Forms {
                 + dob.getDate().toString() + "<br/>Gender: &nbsp;"
                 + gender + "<br/>MailID: &nbsp;" + mail.getText()
                 + "<br/>Mobile: &nbsp;" + mobile.getText()
-                + "<br/>Password: &nbsp;" + pass.getPassword()
+                + "<br/>Password: &nbsp;" + new String(pass.getPassword())
                 + "<br/>Course: &nbsp;" + course.getSelectedItem()
                 + "<br/>Branch: &nbsp;" + branch.getSelectedItem()
                 + "<br/>Semester: &nbsp;" + semester.getSelectedItem() + "</html>", SwingConstants.CENTER);
@@ -44,7 +43,6 @@ public class Forms {
     }
 
     public static void main(String[] args) {
-        // TODO code application logic here
         f2.setVisible(false);
         JLabel lregister = new JLabel("Registration");
         JLabel lname = new JLabel("Name");
@@ -73,7 +71,9 @@ public class Forms {
         name.setBounds(140, 20, 100, 20);
         dob.setBounds(140, 50, 100, 20);
         male.setBounds(140, 80, 80, 20);
+        male.setActionCommand("male");
         female.setBounds(220, 80, 80, 20);
+        female.setActionCommand("female");
         mail.setBounds(140, 110, 100, 20);
         mobile.setBounds(140, 140, 100, 20);
         pass.setBounds(140, 170, 100, 20);
@@ -92,33 +92,9 @@ public class Forms {
                 f2.setVisible(true);
             }
         });
-        male.addActionListener(new ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (flag == 1) {
-                    female.setSelected(false);
-                    male.setSelected(true);
-                    gender = "male";
-                } else {
-                    flag = 0;
-                    male.setSelected(true);
-                    gender = "male";
-                }
-            }
-        });
 
-        female.addActionListener(new ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (flag == 1) {
-                    male.setSelected(false);
-                    female.setSelected(true);
-                    gender = "female";
-                } else {
-                    flag = 0;
-                    female.setSelected(true);
-                    gender = "female";
-                }
-            }
-        });
+        male.addActionListener(new GenderActionListener());
+        female.addActionListener(new GenderActionListener());
 
         f1.add(lname);
         f1.add(ldob);
@@ -148,6 +124,17 @@ public class Forms {
         f1.setLayout(null);
         f1.setVisible(true);
         f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    static class GenderActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            String choice = evt.getActionCommand();
+            male.setSelected(choice == "male");
+            female.setSelected(choice == "female");
+            gender = choice == "male" ? "male" : "female";
+        }
     }
 
 }
