@@ -1,21 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package forms;
+
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-/**
- *
- * @author Prasath Karthiban
- */
-public class Forms {
 
-    /**
-     * @param args the command line arguments
-     */
+public class Forms {
     static String gender;
     static int flag=1;
     static JFrame f1=new JFrame();
