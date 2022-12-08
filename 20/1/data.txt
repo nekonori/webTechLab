@@ -1,0 +1,3 @@
+Hello there!
+I am a text file.
+Leopard is the final version of macOS to support the PowerPC architecture as Snow Leopard functions solely on Intel based Macs.
