@@ -14,9 +14,10 @@
             String bookName = request.getParameter("bookName");
             double price = Double.parseDouble(request.getParameter("price"));
             Book book = new Book(bookId, bookName, "", "", "", price);
+			book.setQuantity(quantity);
             if(quantity == 0) session.removeAttribute(String.valueOf(bookId));
-            else book.setQuantity(quantity);
-            session.setAttribute(String.valueOf(bookId), book);
+            else session.setAttribute(String.valueOf(bookId), book); 				
+            
         %>
     </body>
 </html>
