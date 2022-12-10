@@ -18,6 +18,15 @@
                     #{salad.price}
             </h:column>
         </h:dataTable>
+        <p>Total price: <h:outputText value="#{saladBean.totalPrice}" /></p>
         <a href="index.xhtml">Add a new salad</a>
+        <style>
+        table{
+            border-collapse: collapse;
+        }
+        th, td{
+            padding: 1rem;
+        }
+    </style>
     </h:body>
 </html>

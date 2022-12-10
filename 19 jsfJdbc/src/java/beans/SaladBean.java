@@ -15,7 +15,7 @@ public class SaladBean implements Serializable {
     List<SaladIngredient> ingredients;
     List<Salad> salads;
     String name;
-    int price;
+    int price, totalPrice;
 
     public SaladBean() throws Exception {
         ingredients = new ArrayList<>();
@@ -57,7 +57,12 @@ public class SaladBean implements Serializable {
         return salads;
     }
     
+    public int getTotalPrice(){
+        return totalPrice;
+    }
+    
     public void submit(){
         salads.add(new Salad(name, price));
+        totalPrice += price;
     }
 }
