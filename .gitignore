@@ -1,3 +1,9 @@
 **/*.class
 /18 jsp/nbproject/private/
 /18 jsp/build/
+/19 jsfWithJdbc/nbproject/private/
+/19 jsfWithJdbc/build/
+/19jsfJdbc/nbproject/private/
+/19jsfJdbc/build/
+/19 jsfJdbc/nbproject/private/
+/19 jsfJdbc/build/
