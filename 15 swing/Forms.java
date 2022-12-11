@@ -1,6 +1,9 @@
 
 // to execute run the following command
+// for windows
 // javac -cp ".;jcalendar-1.4.jar" Forms.java && java -cp ".;jcalendar-1.4.jar" Forms
+// for linux
+// javac -classpath ".:jcalendar-1.4.jar" Forms.java && java -classpath ".:jcalendar-1.4.jar" Forms
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.*;
 import javax.swing.*;
